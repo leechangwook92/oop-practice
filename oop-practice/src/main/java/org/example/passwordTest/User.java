@@ -1,6 +1,8 @@
-package org.example;
+package org.example.passwordTest;
 
 //import org.example.passwordTest.RandomPasswordGenerator;
+
+import org.example.passwordTest.PasswordGenerator;
 
 public class User {
     private String password;
