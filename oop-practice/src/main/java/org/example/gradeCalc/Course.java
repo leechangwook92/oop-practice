@@ -12,6 +12,10 @@ public class Course {
         this.grade = grade;
     }
 
+    public double multiplyCreditAndCourseGrade() {
+        return credit * getGradeNumber();
+    }
+
     public int getCredit() {
         return credit;
     }
