@@ -1,6 +1,12 @@
 package org.example.order;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+
+import java.util.List;
+
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatCode;
 
 /**
  *  음식점에서 음식 주문하는 과정 구현
@@ -17,8 +23,20 @@ import org.junit.jupiter.api.Test;
 
 public class CustomerTest {
 
+    @DisplayName("메뉴판에 해당하는 요리를 주문한다.")
     @Test
     void name() {
+        Customer customer = new Customer();
+
+        Menu menu = new Menu(List.of(new MenuItem("돈까스", 5000), new MenuItem("피자", 12000), new MenuItem("냉면", 7000)));
+        Cooking cooking = new Cooking();
+
+        Cook orders = customer.order("피자", menu, cooking);
+
+        assertThatCode(() -> customer.order("피자", menu, cooking))
+                .doesNotThrowAnyException();
+
+        assertThat(orders.getName()).isEqualTo("피자");
 
     }
 }
